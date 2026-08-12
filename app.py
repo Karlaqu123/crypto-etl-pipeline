@@ -72,8 +72,6 @@ hr {
 
 st.title("Crypto Market Dashboard")
 
-st.title("Crypto Market Dashboard")
-
 st.markdown(
     """
     <div style="
