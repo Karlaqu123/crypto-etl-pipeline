@@ -90,11 +90,6 @@ st.caption(
     "Historical cryptocurrency market data collected by an automated ETL pipeline."
 )
 
-st.caption(
-    "Historical cryptocurrency market data collected by an automated ETL pipeline."
-)
-
-
 def get_database_url():
     database_url = os.getenv("DATABASE_URL")
 
