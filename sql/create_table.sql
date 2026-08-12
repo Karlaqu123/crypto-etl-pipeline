@@ -1,0 +1,22 @@
+CREATE TABLE crypto_market_history (
+    record_id BIGSERIAL PRIMARY KEY,
+    coin_id VARCHAR(100) NOT NULL,
+    symbol VARCHAR(20) NOT NULL,
+    coin_name VARCHAR(100) NOT NULL,
+    current_price_usd NUMERIC,
+    market_cap_usd NUMERIC,
+    market_cap_rank INTEGER,
+    total_volume_usd NUMERIC,
+    high_24h_usd NUMERIC,
+    low_24h_usd NUMERIC,
+    price_change_24h_usd NUMERIC,
+    price_change_percentage_24h NUMERIC,
+    circulating_supply NUMERIC,
+    total_supply NUMERIC,
+    max_supply NUMERIC,
+    ath_usd NUMERIC,
+    ath_change_percentage NUMERIC,
+    ath_date TIMESTAMPTZ,
+    source_updated_utc TIMESTAMPTZ,
+    extracted_at_utc TIMESTAMPTZ NOT NULL
+);
