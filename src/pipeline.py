@@ -119,19 +119,12 @@ def create_database_engine():
 
     load_dotenv(env_path)
 
-    db_host = os.getenv("DB_HOST")
-    db_port = os.getenv("DB_PORT")
-    db_name = os.getenv("DB_NAME")
-    db_user = os.getenv("DB_USER")
-    db_password = os.getenv("DB_PASSWORD")
+    database_url = os.getenv("DATABASE_URL")
 
-    database_url = URL.create(
-        drivername="postgresql+psycopg",
-        username=db_user,
-        password=db_password,
-        host=db_host,
-        port=int(db_port),
-        database=db_name
+    database_url = database_url.replace(
+        "postgresql://",
+        "postgresql+psycopg://",
+        1
     )
 
     return create_engine(database_url)
@@ -162,7 +155,6 @@ def load_data(df, engine):
         connection.execute(stmt)
 
 
-#main function to run the ETL pipeline
 def main():
     logger.info("Starting crypto ETL pipeline...")
 
@@ -181,7 +173,7 @@ def main():
         logger.info("Pipeline completed.")
 
     except Exception:
-        logger.exception("Pipeline failed.")
+        logger.exception("Pipeline failed.")    
         raise
 
 if __name__ == "__main__":
